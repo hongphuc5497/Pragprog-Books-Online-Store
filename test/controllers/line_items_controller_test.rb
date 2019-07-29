@@ -20,7 +20,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       post :create, prodcut_id: products(:ruby).id
     end
 
-    assert_redirected_to store_path 
+    assert_redirected_to store_path
   end
 
   test "should show line_item" do
