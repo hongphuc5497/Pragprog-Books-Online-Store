@@ -1,4 +1,5 @@
-class LineItem < ApplicationRecord
+class LineItem < ActiveRecord::Base
+  belongs_to :order, required: false
   belongs_to :product
   belongs_to :cart
 
