@@ -7,6 +7,12 @@ ruby '2.5.5'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#START:mysql
+group :production do
+  gem 'mysql2'
+end
+#END:mysql
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -40,6 +46,16 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery', '~> 0.0.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+#START:capistrano
+# Use Capistrano for deployment
+#START_HIGHLIGHT
+gem 'rvm-capistrano', group: :development
+#END_HIGHLIGHT
+#END:capistrano
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
