@@ -47,9 +47,9 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        OrderNotifier.received(@order).deliver
+        OrderNotifierMailer.received(@order).deliver
         format.html { redirect_to store_url, notice: 
-          Il8n.t('.thanks') }
+          I18n.t('thanks') }
         format.json { render action: 'show', status: :created,
           location: @order }
 		  
@@ -72,6 +72,15 @@ class OrdersController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+
+    def save_after_edit 
+      order = Order.find(params[:id])
+      if order.update(order_params)
+        redirect_to action: :index
+      else 
+        render action: :edit 
+      end 
     end
   end
 

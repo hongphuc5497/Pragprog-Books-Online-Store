@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     protected
   
       def authorize
-        if request.format == Mime::HTML 
+        if request.format == Mime[:html]
           unless User.find_by(id: session[:user_id])
             redirect_to login_url, notice: "Please log in"
           end

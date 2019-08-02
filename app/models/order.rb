@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+    after_create do |order|
+        logger.info "Order #{order.id} created"
+    end
     PAYMENT_TYPES = [ "Check", "Credit card", "Purchase order" ]
     # ...
     has_many :line_items, dependent: :destroy
@@ -12,4 +15,5 @@ class Order < ActiveRecord::Base
             line_items << item
         end
     end
+
 end

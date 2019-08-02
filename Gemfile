@@ -46,7 +46,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery', '~> 0.0.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
